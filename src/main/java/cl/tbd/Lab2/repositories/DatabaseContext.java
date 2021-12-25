@@ -6,7 +6,7 @@ import org.sql2o.Sql2o;
 
 @Configuration
 public class DatabaseContext {
-    private String url = "jdbc:postgresql://127.0.0.1:5432/Test";
+    private String url = "jdbc:postgresql://127.0.0.1:5432/BD_TBD";
     private String username = "postgres";
     private String password = "postgres";   
     @Bean
