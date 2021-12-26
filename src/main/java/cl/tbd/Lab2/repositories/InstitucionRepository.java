@@ -13,5 +13,5 @@ public interface InstitucionRepository {
     public void deleteAllInstituciones();
     public Institucion getInstitucionById(int id);
     public void deleteInstitucionById(int id);
-    public void putInstitucion(int id,Institucion institucion);
+    public void updateInstitucionById(int id,Institucion institucion);
 }

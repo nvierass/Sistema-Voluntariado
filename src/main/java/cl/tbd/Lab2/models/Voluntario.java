@@ -1,4 +1,5 @@
 package cl.tbd.Lab2.models;
+import java.sql.Date;
 
 public class Voluntario {
     private int id_voluntario;
@@ -7,7 +8,7 @@ public class Voluntario {
     private String region;
     private String ciudad;
     private String telefono_contacto;
-    private String fecha_nacimiento;
+    private Date fecha_nacimiento;
     private String correo;
     private boolean disponibilidad_lunes;
     private boolean disponibilidad_martes;
@@ -36,7 +37,7 @@ public class Voluntario {
     public String getTelefono_contacto() {
         return telefono_contacto;
     }
-    public String getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
     public String getCorreo() {
@@ -82,7 +83,7 @@ public class Voluntario {
     public void setTelefono_contacto(String telefono_contacto) {
         this.telefono_contacto = telefono_contacto;
     }
-    public void setFecha_nacimiento(String fecha_nacimiento) {
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
     public void setCorreo(String correo) {

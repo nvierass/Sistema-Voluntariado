@@ -40,6 +40,7 @@ create table "Voluntario" (
 	region varchar(32) not null,
 	ciudad varchar(32) not null,
 	telefono_contacto varchar(16) not null,
+	fecha_nacimiento DATE not null,
 	correo varchar(64) not null,
 	disponibilidad_lunes boolean,
 	disponibilidad_martes boolean,

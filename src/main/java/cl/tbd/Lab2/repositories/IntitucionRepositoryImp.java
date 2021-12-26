@@ -37,7 +37,7 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
             return con.createQuery(sql)
                     .addParameter("nombre", institucion.getNombre())
                     .addParameter("descripcion", institucion.getDescripcion())
-                    .executeUpdate().getKey(Integer.class);
+                    .executeUpdate().getKey(int.class);
         }
     }
 
@@ -66,8 +66,11 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
     }
 
     @Override
-    public void putInstitucion(int id,Institucion institucion){
-        String sql = "update \"Institucion\" set nombre = :nombre, descripcion = :descripcion where id_institucion = :id";
+    public void updateInstitucionById(int id,Institucion institucion){
+        String sql = "update \"Institucion\" set" +
+                "nombre = :nombre, " +
+                "descripcion = :descripcion" +
+                " where id_institucion = :id";
         try (Connection con = sql2o.open()) {
                 con.createQuery(sql)
                     .addParameter("id",id)

@@ -30,12 +30,6 @@ public class InstitucionService {
     public void deleteAllInstituciones(){
         institucionRepository.deleteAllInstituciones();
     }
-    //Update parcial
-    @PatchMapping("/instituciones/")
-    public ResponseEntity updatePatchInstitucion(){
-        return ResponseEntity.badRequest().build();
-    }
-    //Update total
     @PutMapping("/instituciones/")
     public ResponseEntity updatePutInstitucion(){
         return ResponseEntity.badRequest().build();
@@ -54,11 +48,11 @@ public class InstitucionService {
     public void deleteInstitucion(@PathVariable int id){
         institucionRepository.deleteInstitucionById(id);
     }
-
     @PutMapping("/instituciones/{id}")
-    public void updatePutInstitucionById(@PathVariable int id,@RequestBody Institucion institucion){
-        institucionRepository.putInstitucion(id,institucion);
+    public void updateInstitucionById(@PathVariable int id,@RequestBody Institucion institucion){
+        institucionRepository.updateInstitucionById(id,institucion);
     }
+
 
 
     @GetMapping("/instituciones/count")
