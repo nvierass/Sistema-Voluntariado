@@ -22,12 +22,12 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
     }
 
     @Override
-    public int addVoluntario(Voluntario voluntario){
+    public Voluntario addVoluntario(Voluntario voluntario){
         String sql = "insert into \"Voluntario\"(rut,nombre,region,ciudad,telefono_contacto,fecha_nacimiento,correo,disponibilidad_lunes," +
                 "disponibilidad_martes,disponibilidad_miercoles,disponibilidad_jueves,disponibilidad_viernes,disponibilidad_sabado," +
                 "disponibilidad_domingo) values (:rut, :nombre,:region,:ciudad,:telefono,:fecha_nac,:correo,:disp_lun,:disp_mar,:disp_mie,:disp_jue,:disp_vie,:disp_sab,:disp_dom);";
         try (Connection con = sql2o.open()) {
-            return (int) con.createQuery(sql)
+            int id = (int) con.createQuery(sql)
                     .addParameter("rut", voluntario.getRut() )
                     .addParameter("nombre", voluntario.getNombre())
                     .addParameter("region", voluntario.getRegion())
@@ -43,6 +43,8 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
                     .addParameter("disp_sab", voluntario.getDisponibilidad_sabado())
                     .addParameter("disp_dom", voluntario.getDisponibilidad_domingo())
                     .executeUpdate().getKey();
+            voluntario.setId_voluntario(id);
+            return voluntario;
         }
     }
     @Override
@@ -70,7 +72,7 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
     }
 
     @Override
-    public void updateVoluntarioById(int id,Voluntario voluntario){
+    public Voluntario updateVoluntarioById(int id,Voluntario voluntario){
         String sql = "update \"Voluntario\" set rut =:rut," +
                 "nombre = :nombre," +
                 "region = :region," +
@@ -104,6 +106,8 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
                     .addParameter("disp_sab", voluntario.getDisponibilidad_sabado())
                     .addParameter("disp_dom", voluntario.getDisponibilidad_domingo())
                     .executeUpdate();
+            voluntario.setId_voluntario(id);
+            return voluntario;
         }
     }
 }

@@ -1,12 +1,10 @@
 package cl.tbd.Lab2.services;
 
 import cl.tbd.Lab2.models.Institucion;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import cl.tbd.Lab2.repositories.*;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -24,7 +22,6 @@ public class InstitucionService {
     @PostMapping("/instituciones/")
     public Institucion addInstitution(@RequestBody Institucion institucion) {
         return institucionRepository.addInstitucion(institucion);
-      //  return ResponseEntity.created(URI.create(String.format("/instituciones/%s", id_nueva))).body(institucion);
     }
     @DeleteMapping("/instituciones/")
     public String deleteAllInstituciones(){
@@ -32,7 +29,7 @@ public class InstitucionService {
         return "Se han eliminado todas las instituciones";
     }
     @PutMapping("/instituciones/")
-    public String updatePutInstitucion(){
+    public String updateAllInstituciones(){
         return "Método no permitido en esta URI";
     }
 
@@ -48,7 +45,7 @@ public class InstitucionService {
     @DeleteMapping("/instituciones/{id}")
     public String deleteInstitucion(@PathVariable int id){
         institucionRepository.deleteInstitucionById(id);
-        return String.format("Se ha eliminado la institución %s",id);
+        return String.format("Se ha eliminado la institución con id=%s",id);
     }
     @PutMapping("/instituciones/{id}")
     public Institucion updateInstitucionById(@PathVariable int id,@RequestBody Institucion institucion){

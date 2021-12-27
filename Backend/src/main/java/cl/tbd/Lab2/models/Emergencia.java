@@ -3,6 +3,7 @@ package cl.tbd.Lab2.models;
 public class Emergencia {
     private int id_emergencia;
     private int institucion_encargada;
+    private String estado_emergencia;
     private String descripcion;
     private String nombre_coordinador;
     private String rut_coordinador;
@@ -16,6 +17,11 @@ public class Emergencia {
     public int getInstitucion_encargada() {
         return institucion_encargada;
     }
+
+    public String getEstado_emergencia() {
+        return estado_emergencia;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -41,6 +47,11 @@ public class Emergencia {
     public void setInstitucion_encargada(int institucion_encargada) {
         this.institucion_encargada = institucion_encargada;
     }
+
+    public void setEstado_emergencia(String estado_emergencia) {
+        this.estado_emergencia = estado_emergencia;
+    }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }

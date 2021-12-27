@@ -1,5 +1,4 @@
 1.- Método update put o patch (depende de la situacion?)
 2.- al ingresar fechas me resta un dia, como solucionarlo (Json "fecha": "2000-20-20" lo introduce como "2000-20-19")
 3.- Se debe implementar crud para tablas intermedias tambien (tarea_habilidad ej)?
-4.- como redireccionar al nuevo elemento al agregarlo (ej al agregar el voluntario 1 devuelva a la uri "/voluntarios/1, getKey() no retorna el id autoincrementable)
 5.- como generar una notificacion de error al invocar un método invalido (/entidad/id con POST por ejemplo)

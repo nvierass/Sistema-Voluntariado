@@ -45,7 +45,7 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
 
     @Override
     public Institucion getInstitucionById(int id){
-        String sql = "select id_institucion,nombre,descripcion from \"Institucion\" where id_institucion = :id;";
+        String sql = "select * from \"Institucion\" where id_institucion = :id;";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql).addParameter("id",id).executeAndFetchFirst(Institucion.class);
         }
@@ -61,7 +61,7 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
 
     @Override
     public Institucion updateInstitucionById(int id,Institucion institucion){
-        String sql = "update \"Institucion\" set nombre = :nombre, descripcion = :descripcion where id_institucion = :id";
+        String sql = "update \"Institucion\" set nombre = :nombre, descripcion = :descripcion where id_institucion = :id;";
         try (Connection con = sql2o.open()) {
                 con.createQuery(sql)
                     .addParameter("id",id)

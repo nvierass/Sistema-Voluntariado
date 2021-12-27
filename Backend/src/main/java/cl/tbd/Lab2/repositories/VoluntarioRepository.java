@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface VoluntarioRepository {
     public List<Voluntario> getAllVoluntarios();
-    public int addVoluntario(Voluntario voluntario);
+    public Voluntario addVoluntario(Voluntario voluntario);
     public void deleteAllVoluntarios();
     public Voluntario getVoluntarioById(int id);
     public void deleteVoluntarioById(int id);
-    public void updateVoluntarioById(int id,Voluntario voluntario);
+    public Voluntario updateVoluntarioById(int id,Voluntario voluntario);
 }
