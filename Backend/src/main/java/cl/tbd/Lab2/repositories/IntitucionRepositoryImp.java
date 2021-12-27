@@ -34,10 +34,10 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
     public int addInstitucion(Institucion institucion){
         String sql = "insert into \"Institucion\"(nombre,descripcion) values (:nombre, :descripcion)";
         try (Connection con = sql2o.open()) {
-            return con.createQuery(sql)
+            return (int) con.createQuery(sql)
                     .addParameter("nombre", institucion.getNombre())
                     .addParameter("descripcion", institucion.getDescripcion())
-                    .executeUpdate().getKey(int.class);
+                    .executeUpdate().getKey();
         }
     }
 

@@ -86,6 +86,7 @@ create table "Tarea_Habilidad" (
 
 create table "Tarea" (
 	id_tarea serial primary key,
+	emergencia int not null,
 	estado_tarea varchar(32) not null,
 	nombre varchar(32) not null,
 	descripcion varchar(128) not null

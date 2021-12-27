@@ -27,7 +27,7 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
                 "disponibilidad_martes,disponibilidad_miercoles,disponibilidad_jueves,disponibilidad_viernes,disponibilidad_sabado," +
                 "disponibilidad_domingo) values (:rut, :nombre,:region,:ciudad,:telefono,:fecha_nac,:correo,:disp_lun,:disp_mar,:disp_mie,:disp_jue,:disp_vie,:disp_sab,:disp_dom);";
         try (Connection con = sql2o.open()) {
-            return con.createQuery(sql)
+            return (int) con.createQuery(sql)
                     .addParameter("rut", voluntario.getRut() )
                     .addParameter("nombre", voluntario.getNombre())
                     .addParameter("region", voluntario.getRegion())
@@ -42,7 +42,7 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
                     .addParameter("disp_vie", voluntario.getDisponibilidad_viernes())
                     .addParameter("disp_sab", voluntario.getDisponibilidad_sabado())
                     .addParameter("disp_dom", voluntario.getDisponibilidad_domingo())
-                    .executeUpdate().getKey(int.class);
+                    .executeUpdate().getKey();
         }
     }
     @Override
