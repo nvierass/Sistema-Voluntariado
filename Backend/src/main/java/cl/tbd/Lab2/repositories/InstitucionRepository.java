@@ -9,9 +9,9 @@ import java.util.List;
 public interface InstitucionRepository {
     public int countInstitucion();
     public List<Institucion> getAllInstituciones();
-    public int addInstitucion(Institucion institucion);
+    public Institucion addInstitucion(Institucion institucion);
     public void deleteAllInstituciones();
     public Institucion getInstitucionById(int id);
     public void deleteInstitucionById(int id);
-    public void updateInstitucionById(int id,Institucion institucion);
+    public Institucion updateInstitucionById(int id,Institucion institucion);
 }

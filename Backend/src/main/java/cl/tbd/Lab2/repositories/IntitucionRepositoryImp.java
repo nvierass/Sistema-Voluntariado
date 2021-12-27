@@ -13,15 +13,7 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
     @Autowired
     private Sql2o sql2o;
 
-    @Override
-    public int countInstitucion() {
-        int total = 0;
-        String sql = "SELECT COUNT(*) FROM \"Institucion\";";
-        try(Connection conn = sql2o.open()){
-            total = conn.createQuery(sql).executeScalar(Integer.class);
-        }
-        return total;
-    }
+
     @Override
     public List<Institucion> getAllInstituciones(){
         String sql = "Select * from \"Institucion\";";
@@ -31,13 +23,15 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
     }
 
     @Override
-    public int addInstitucion(Institucion institucion){
+    public Institucion addInstitucion(Institucion institucion){
         String sql = "insert into \"Institucion\"(nombre,descripcion) values (:nombre, :descripcion)";
         try (Connection con = sql2o.open()) {
-            return (int) con.createQuery(sql)
+            int id = (int) con.createQuery(sql)
                     .addParameter("nombre", institucion.getNombre())
                     .addParameter("descripcion", institucion.getDescripcion())
                     .executeUpdate().getKey();
+            institucion.setId_institucion(id);
+            return institucion;
         }
     }
 
@@ -66,17 +60,27 @@ public class IntitucionRepositoryImp implements InstitucionRepository {
     }
 
     @Override
-    public void updateInstitucionById(int id,Institucion institucion){
-        String sql = "update \"Institucion\" set" +
-                "nombre = :nombre, " +
-                "descripcion = :descripcion" +
-                " where id_institucion = :id";
+    public Institucion updateInstitucionById(int id,Institucion institucion){
+        String sql = "update \"Institucion\" set nombre = :nombre, descripcion = :descripcion where id_institucion = :id";
         try (Connection con = sql2o.open()) {
                 con.createQuery(sql)
                     .addParameter("id",id)
                     .addParameter("nombre", institucion.getNombre())
                     .addParameter("descripcion", institucion.getDescripcion())
                     .executeUpdate();
+                institucion.setId_institucion(id);
+                return institucion;
         }
     }
+
+    @Override
+    public int countInstitucion() {
+        int total = 0;
+        String sql = "SELECT COUNT(*) FROM \"Institucion\";";
+        try(Connection conn = sql2o.open()){
+            total = conn.createQuery(sql).executeScalar(Integer.class);
+        }
+        return total;
+    }
+
 }

@@ -22,35 +22,37 @@ public class InstitucionService {
         return institucionRepository.getAllInstituciones();
     }
     @PostMapping("/instituciones/")
-    public ResponseEntity<Institucion> addInstitution(@RequestBody Institucion institucion) {
-        int id_nueva = institucionRepository.addInstitucion(institucion);
-        return ResponseEntity.created(URI.create(String.format("/instituciones/%s", id_nueva))).body(institucion);
+    public Institucion addInstitution(@RequestBody Institucion institucion) {
+        return institucionRepository.addInstitucion(institucion);
+      //  return ResponseEntity.created(URI.create(String.format("/instituciones/%s", id_nueva))).body(institucion);
     }
     @DeleteMapping("/instituciones/")
-    public void deleteAllInstituciones(){
+    public String deleteAllInstituciones(){
         institucionRepository.deleteAllInstituciones();
+        return "Se han eliminado todas las instituciones";
     }
     @PutMapping("/instituciones/")
-    public ResponseEntity updatePutInstitucion(){
-        return ResponseEntity.badRequest().build();
+    public String updatePutInstitucion(){
+        return "Método no permitido en esta URI";
     }
 
 
     @PostMapping("/instituciones/{id}")
-    public ResponseEntity addInstitucion(@PathVariable int id){
-        return ResponseEntity.badRequest().build();
+    public String addInstitucion(@PathVariable int id){
+        return "Método no permitido en esta URI";
     }
     @GetMapping("/instituciones/{id}")
     public Institucion getInstitucion(@PathVariable int id){
         return institucionRepository.getInstitucionById(id);
     }
     @DeleteMapping("/instituciones/{id}")
-    public void deleteInstitucion(@PathVariable int id){
+    public String deleteInstitucion(@PathVariable int id){
         institucionRepository.deleteInstitucionById(id);
+        return String.format("Se ha eliminado la institución %s",id);
     }
     @PutMapping("/instituciones/{id}")
-    public void updateInstitucionById(@PathVariable int id,@RequestBody Institucion institucion){
-        institucionRepository.updateInstitucionById(id,institucion);
+    public Institucion updateInstitucionById(@PathVariable int id,@RequestBody Institucion institucion){
+        return institucionRepository.updateInstitucionById(id,institucion);
     }
 
 
