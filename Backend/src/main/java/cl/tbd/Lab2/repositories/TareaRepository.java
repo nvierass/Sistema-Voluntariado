@@ -1,0 +1,16 @@
+package cl.tbd.Lab2.repositories;
+
+import cl.tbd.Lab2.models.Tarea;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TareaRepository {
+    public List<Tarea> getAllTareas();
+    public Tarea addTarea(Tarea tarea);
+    public void deleteAllTareas();
+    public Tarea getTareaById(int id);
+    public void deleteTareaById(int id);
+    public Tarea updateTareaById(int id,Tarea tarea);
+}
