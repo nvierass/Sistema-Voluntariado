@@ -1,3 +1,2 @@
 1.- Método update put o patch (depende de la situacion?)
-3.- Se debe implementar crud para tablas intermedias tambien (tarea_habilidad ej)?
 5.- como generar una notificacion de error al invocar un método invalido (/entidad/id con POST por ejemplo)

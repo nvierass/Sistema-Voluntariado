@@ -9,6 +9,7 @@ import cl.tbd.Lab2.repositories.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class Voluntario_HabilidadService {
 
     private final Voluntario_HabilidadRepository voluntario_habilidadRepository;

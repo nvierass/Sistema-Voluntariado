@@ -8,6 +8,7 @@ import cl.tbd.Lab2.repositories.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class Tarea_HabilidadService {
 
     private final Tarea_HabilidadRepository tarea_habilidadRepository;
