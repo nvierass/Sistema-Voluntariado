@@ -98,20 +98,26 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'B',
+          title: 'Bienvenida',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'U',
+          title: 'Usuarios',
+          to: '/usuarios'
+        },
+        {
+          icon: 'I',
+          title: 'Instituciones',
+          to: '/instituciones'
         }
+
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Plataforma de Emergencias'
     }
   }
 }
