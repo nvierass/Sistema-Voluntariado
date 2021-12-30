@@ -1,6 +1,7 @@
 package cl.tbd.Lab2.services;
 
 import cl.tbd.Lab2.models.Tarea;
+import cl.tbd.Lab2.models.Voluntario;
 import org.springframework.web.bind.annotation.*;
 
 import cl.tbd.Lab2.repositories.*;
@@ -50,5 +51,10 @@ public class TareaService {
     @PutMapping("/tareas/{id}")
     public Tarea updateTareaById(@PathVariable int id,@RequestBody Tarea tarea){
         return tareaRepository.updateTareaById(id,tarea);
+    }
+
+    @GetMapping("tareas/{id}/voluntarios")
+    public List<Voluntario> getVoluntariosInscritos(@PathVariable int id){
+        return tareaRepository.findVoluntariosByTareaId(id);
     }
 }

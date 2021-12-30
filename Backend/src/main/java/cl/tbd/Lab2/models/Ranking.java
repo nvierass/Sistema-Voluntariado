@@ -4,7 +4,9 @@ public class Ranking {
     private int id_ranking;
     private int id_voluntario;
     private int id_tarea;
-    private int requisitos_cumplidos;
+    private int puntaje;
+    private boolean inscrito;
+    private boolean aceptado;
 
     public int getId_ranking(){
         return this.id_ranking;
@@ -15,8 +17,14 @@ public class Ranking {
     public int getId_tarea(){
         return this.id_tarea;
     }
-    public int getRequisitos_cumplidos(){
-        return this.requisitos_cumplidos;
+    public int getPuntaje(){
+        return this.puntaje;
+    }
+    public boolean getInscrito(){
+        return this.inscrito;
+    }
+    public boolean getAceptado(){
+        return this.aceptado;
     }
 
     public void setId_ranking(int id_ranking){
@@ -31,7 +39,13 @@ public class Ranking {
         this.id_tarea = id_tarea;
     }
 
-    public void setRequisitos_cumplidos(int requisitos_cumplidos) {
-        this.requisitos_cumplidos = requisitos_cumplidos;
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+    public void setInscrito(Boolean inscrito){
+        this.inscrito = inscrito;
+    }
+    public void setAceptado(Boolean aceptado){
+        this.aceptado = aceptado;
     }
 }

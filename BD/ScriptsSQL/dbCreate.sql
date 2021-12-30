@@ -30,7 +30,9 @@ create table "Ranking" (
 	id_ranking serial primary key,
 	id_voluntario int not null,
 	id_tarea int not null,
-	requisitos_cumplidos int not null
+	puntaje int not null,
+	inscrito boolean not null,
+	aceptado boolean not null
 );
 
 create table "Voluntario" (
@@ -92,6 +94,22 @@ create table "Tarea" (
 	nombre varchar(32) not null,
 	descripcion varchar(128) not null
 );
+
+
+CREATE OR REPLACE FUNCTION edad(fecha_nacimiento date)
+RETURNS integer AS $$
+BEGIN
+IF date_part('month',current_date) - date_part('month',fecha_nacimiento) > 0 then 
+	return date_part('year',current_date) - date_part('year',fecha_nacimiento);
+ELSEIF date_part('month',current_date) - date_part('month',fecha_nacimiento) < 0 then
+	return date_part('year',current_date) - date_part('year',fecha_nacimiento) - 1; 
+ELSEIF date_part('month',current_date) - date_part('month',fecha_nacimiento) = 0 and date_part('day',current_date) - date_part('day',fecha_nacimiento) > -1 then
+	return date_part('year',current_date) - date_part('year',fecha_nacimiento);
+ELSE 
+	return date_part('year',current_date) - date_part('year',fecha_nacimiento) - 1;
+END IF;
+END; $$
+LANGUAGE PLPGSQL;
 
 
 --ALTER TABLE "Ranking" ADD CONSTRAINT FK_Ranking_ID_Voluntario FOREIGN KEY (id_voluntario) REFERENCES "Voluntario"(id_voluntario);

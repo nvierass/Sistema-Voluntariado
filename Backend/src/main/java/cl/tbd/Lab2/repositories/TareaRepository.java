@@ -1,6 +1,7 @@
 package cl.tbd.Lab2.repositories;
 
 import cl.tbd.Lab2.models.Tarea;
+import cl.tbd.Lab2.models.Voluntario;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface TareaRepository {
     public Tarea getTareaById(int id);
     public void deleteTareaById(int id);
     public Tarea updateTareaById(int id,Tarea tarea);
+    public List <Voluntario> findVoluntariosByTareaId(int id);
 }

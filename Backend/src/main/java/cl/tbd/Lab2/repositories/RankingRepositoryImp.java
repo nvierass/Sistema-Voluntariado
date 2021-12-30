@@ -23,12 +23,14 @@ public class RankingRepositoryImp implements RankingRepository {
 
     @Override
     public Ranking addRanking(Ranking ranking){
-        String sql = "insert into \"Ranking\"(id_voluntario,id_tarea,requisitos_cumplidos) values (:id_voluntario, :id_tarea,:requisitos_cumplidos);";
+        String sql = "insert into \"Ranking\"(id_voluntario,id_tarea,puntaje,inscrito,aceptado) values (:id_voluntario, :id_tarea,:puntaje,:inscrito,:aceptado);";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .addParameter("id_voluntario", ranking.getId_voluntario() )
                     .addParameter("id_tarea", ranking.getId_tarea())
-                    .addParameter("requisitos_cumplidos", ranking.getRequisitos_cumplidos())
+                    .addParameter("puntaje", ranking.getPuntaje())
+                    .addParameter("inscrito", ranking.getInscrito())
+                    .addParameter("aceptado", ranking.getAceptado())
                     .executeUpdate().getKey();
             ranking.setId_ranking(id);
             return ranking;
@@ -62,14 +64,16 @@ public class RankingRepositoryImp implements RankingRepository {
     public Ranking updateRankingById(int id,Ranking ranking){
         String sql = "update \"Ranking\" set id_voluntario =:id_voluntario," +
                 "id_tarea = :id_tarea," +
-                "requisitos_cumplidos = :requisitos_cumplidos" +
+                "puntaje = :puntaje, inscrito = :inscrito, aceptado = :aceptado" +
                 " where id_ranking = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id",id)
                     .addParameter("id_voluntario", ranking.getId_voluntario() )
                     .addParameter("id_tarea", ranking.getId_tarea())
-                    .addParameter("requisitos_cumplidos", ranking.getRequisitos_cumplidos())
+                    .addParameter("puntaje", ranking.getPuntaje())
+                    .addParameter("inscrito", ranking.getInscrito())
+                    .addParameter("aceptado", ranking.getAceptado())
                     .executeUpdate();
             ranking.setId_ranking(id);
             return ranking;
