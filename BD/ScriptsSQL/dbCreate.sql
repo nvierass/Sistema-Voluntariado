@@ -37,13 +37,13 @@ create table "Ranking" (
 
 create table "Voluntario" (
 	id_voluntario serial primary key,
-	rut varchar(16) not null,
+	rut varchar(16) not null UNIQUE,
 	nombre varchar(64) not null,
 	region varchar(32) not null,
 	ciudad varchar(32) not null,
-	telefono_contacto varchar(16) not null,
+	telefono_contacto varchar(16) not null UNIQUE,
 	fecha_nacimiento DATE not null,
-	correo varchar(64) not null,
+	correo varchar(64) not null UNIQUE,
 	disponibilidad_lunes boolean,
 	disponibilidad_martes boolean,
 	disponibilidad_miercoles boolean,
