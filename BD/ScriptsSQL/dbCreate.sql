@@ -112,6 +112,23 @@ END; $$
 LANGUAGE PLPGSQL;
 
 
+--Procedimiento Almacenado*/
+
+CREATE OR REPLACE PROCEDURE calcular_ranking(id_tarea int)
+LANGUAGE SQL
+AS $$
+UPDATE "Ranking" SET puntaje = puntaje+1 FROM (Select "Ranking".id_voluntario
+										       FROM "Ranking",(SELECT "Tarea_Habilidad".id_habilidad 
+															   FROM "Tarea_Habilidad"
+															   WHERE "Tarea_Habilidad".id_tarea = id_tarea) T
+											   INNER JOIN "Voluntario_Habilidad" ON "Voluntario_Habilidad".id_habilidad = T.id_habilidad
+											   INNER JOIN "Voluntario" ON "Voluntario".id_voluntario = "Voluntario_Habilidad".id_voluntario
+											   WHERE "Ranking".id_voluntario = "Voluntario".id_voluntario
+											   GROUP BY "Ranking".id_voluntario) H
+WHERE H.id_voluntario = "Ranking".id_voluntario
+$$;
+
+
 --ALTER TABLE "Ranking" ADD CONSTRAINT FK_Ranking_ID_Voluntario FOREIGN KEY (id_voluntario) REFERENCES "Voluntario"(id_voluntario);
 --ALTER TABLE "Ranking" ADD CONSTRAINT FK_Ranking_ID_Tarea FOREIGN KEY (id_tarea) REFERENCES "Tarea"(id_tarea);
 --ALTER TABLE "Emergencia" ADD CONSTRAINT FK_Emergencia_ID_Institucion FOREIGN KEY (institucion_encargada) REFERENCES "Institucion"(id_institucion);
