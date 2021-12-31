@@ -11,16 +11,14 @@
         </ul>
         <form>
             <div class="form-item">
-                <label for="name">Nombre</label>
-                    <input type="text" id="name" v-model="institucion.nombre">
-                <label for="desc">Descripción </label>
-                    <input type="text" id="descripcion" v-model="institucion.descripcion">
+                <label for="name">Tarea</label>
+                    <input type="text" placeholder="Ingrese la tarea" id="name" v-model="institucion.nombre">
+                    <button type="button" id="botonBuscar" @click="send" >
+                        Buscar Voluntarios 
+                    </button>
+                
             </div>
-            <div>
-                <button type="button" @click="send">
-                        Agregar
-                </button>
-            </div>
+            
             <label>{{this.error}}</label>
         </form>
     </label>
@@ -30,7 +28,7 @@
 export default {
     data(){
        return{
-            titulo: "Pagina de instituciones",
+            titulo: "Voluntarios Disponibles",
             institucion:{},
             items:[],
             error: ""
@@ -66,4 +64,10 @@ export default {
 </script>
 
 
+<style>
+#name {color:white;
+       border: white 1px solid;}
 
+#botonBuscar{background-color:red;
+             BORDER: white 1px solid;}
+</style>
