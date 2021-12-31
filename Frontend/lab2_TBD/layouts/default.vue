@@ -111,6 +111,11 @@ export default {
           icon: 'I',
           title: 'Instituciones',
           to: '/instituciones'
+        },
+        {
+          icon: 'V',
+          title: 'Voluntarios',
+          to: '/Voluntarios'
         }
 
       ],
