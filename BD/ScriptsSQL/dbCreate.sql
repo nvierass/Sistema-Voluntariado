@@ -126,12 +126,12 @@ group by id_voluntario) T;
 $$;
 
 
---ALTER TABLE "Ranking" ADD CONSTRAINT FK_Ranking_ID_Voluntario FOREIGN KEY (id_voluntario) REFERENCES "Voluntario"(id_voluntario);
---ALTER TABLE "Ranking" ADD CONSTRAINT FK_Ranking_ID_Tarea FOREIGN KEY (id_tarea) REFERENCES "Tarea"(id_tarea);
---ALTER TABLE "Emergencia" ADD CONSTRAINT FK_Emergencia_ID_Institucion FOREIGN KEY (institucion_encargada) REFERENCES "Institucion"(id_institucion);
---ALTER TABLE "Voluntario_Habilidad" ADD CONSTRAINT FK_Voluntario_Habilidad_ID_Voluntario FOREIGN KEY (id_voluntario) REFERENCES "Voluntario"(id_voluntario);
---ALTER TABLE "Voluntario_Habilidad" ADD CONSTRAINT FK_Voluntario_Habilidad_ID_Habilidad FOREIGN KEY (id_habilidad) REFERENCES "Habilidad"(id_habilidad);
---ALTER TABLE "Emergencia_Habilidad" ADD CONSTRAINT FK_Emergencia_Habilidad_ID_Emergencia FOREIGN KEY (id_emergencia) REFERENCES "Emergencia"(id_emergencia);
---ALTER TABLE "Emergencia_Habilidad" ADD CONSTRAINT FK_Emergencia_Habilidad_ID_Habilidad FOREIGN KEY (id_habilidad) REFERENCES "Habilidad"(id_habilidad);
---ALTER TABLE "Tarea_Habilidad" ADD CONSTRAINT FK_Tarea_Habilidad_ID_Tarea FOREIGN KEY (id_tarea) REFERENCES "Tarea"(id_tarea);
---ALTER TABLE "Tarea_Habilidad" ADD CONSTRAINT FK_Tarea_Habilidad_ID_Habilidad FOREIGN KEY (id_habilidad) REFERENCES "Habilidad"(id_habilidad);
+ALTER TABLE "Ranking" ADD CONSTRAINT FK_Ranking_ID_Voluntario FOREIGN KEY (id_voluntario) REFERENCES "Voluntario"(id_voluntario);
+ALTER TABLE "Ranking" ADD CONSTRAINT FK_Ranking_ID_Tarea FOREIGN KEY (id_tarea) REFERENCES "Tarea"(id_tarea);
+ALTER TABLE "Emergencia" ADD CONSTRAINT FK_Emergencia_ID_Institucion FOREIGN KEY (institucion_encargada) REFERENCES "Institucion"(id_institucion);
+ALTER TABLE "Voluntario_Habilidad" ADD CONSTRAINT FK_Voluntario_Habilidad_ID_Voluntario FOREIGN KEY (id_voluntario) REFERENCES "Voluntario"(id_voluntario);
+ALTER TABLE "Voluntario_Habilidad" ADD CONSTRAINT FK_Voluntario_Habilidad_ID_Habilidad FOREIGN KEY (id_habilidad) REFERENCES "Habilidad"(id_habilidad);
+ALTER TABLE "Emergencia_Habilidad" ADD CONSTRAINT FK_Emergencia_Habilidad_ID_Emergencia FOREIGN KEY (id_emergencia) REFERENCES "Emergencia"(id_emergencia);
+ALTER TABLE "Emergencia_Habilidad" ADD CONSTRAINT FK_Emergencia_Habilidad_ID_Habilidad FOREIGN KEY (id_habilidad) REFERENCES "Habilidad"(id_habilidad);
+ALTER TABLE "Tarea_Habilidad" ADD CONSTRAINT FK_Tarea_Habilidad_ID_Tarea FOREIGN KEY (id_tarea) REFERENCES "Tarea"(id_tarea);
+ALTER TABLE "Tarea_Habilidad" ADD CONSTRAINT FK_Tarea_Habilidad_ID_Habilidad FOREIGN KEY (id_habilidad) REFERENCES "Habilidad"(id_habilidad);
