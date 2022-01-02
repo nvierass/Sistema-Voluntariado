@@ -82,7 +82,7 @@ public class TareaRepositoryImp implements TareaRepository {
 
     @Override
     public List <Voluntario> findVoluntariosByTareaId(int id){
-        String sql = "select nombre,rut,region,ciudad,edad(fecha_nacimiento) from \"Voluntario\" as V INNER JOIN \"Ranking\" as R on V.id_voluntario = R.id_voluntario where id_tarea = :id and R.inscrito = true;";
+        String sql = "select nombre,rut,region,ciudad,edad(fecha_nacimiento) from \"Voluntario\" as V INNER JOIN \"Ranking\" as R on V.id_voluntario = R.id_voluntario where id_tarea = :id and R.inscrito = true order by puntaje;";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql).addParameter("id", id).executeAndFetch(Voluntario.class);
         }

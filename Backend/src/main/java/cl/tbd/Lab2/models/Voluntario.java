@@ -17,6 +17,7 @@ public class Voluntario {
     private boolean disponibilidad_viernes;
     private boolean disponibilidad_sabado;
     private boolean disponibilidad_domingo;
+    private int edad;
 
 
     public int getId_voluntario() {
@@ -64,6 +65,7 @@ public class Voluntario {
     public boolean getDisponibilidad_domingo() {
         return disponibilidad_domingo;
     }
+    public int getEdad(){return edad;}
 
     public void setId_voluntario(int id_voluntario) {
         this.id_voluntario = id_voluntario;
@@ -109,5 +111,8 @@ public class Voluntario {
     }
     public void setDisponibilidad_domingo(boolean disponibilidad_domingo) {
         this.disponibilidad_domingo = disponibilidad_domingo;
+    }
+    public void setEdad(int edad){
+        this.edad = edad;
     }
 }
