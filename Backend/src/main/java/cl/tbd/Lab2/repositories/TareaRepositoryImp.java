@@ -2,6 +2,7 @@ package cl.tbd.Lab2.repositories;
 
 import cl.tbd.Lab2.models.Tarea;
 import cl.tbd.Lab2.models.Voluntario;
+import cl.tbd.Lab2.models.Ranking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
@@ -85,6 +86,14 @@ public class TareaRepositoryImp implements TareaRepository {
         String sql = "select nombre,rut,region,ciudad,edad(fecha_nacimiento) from \"Voluntario\" as V INNER JOIN \"Ranking\" as R on V.id_voluntario = R.id_voluntario where id_tarea = :id and R.inscrito = true order by puntaje;";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql).addParameter("id", id).executeAndFetch(Voluntario.class);
+        }
+    }
+
+    @Override
+    public void generateRankingByTareaId(int id){
+        String sql_sp = "call calcular_ranking(:id);";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql_sp).addParameter("id",id).executeUpdate();
         }
     }
 }

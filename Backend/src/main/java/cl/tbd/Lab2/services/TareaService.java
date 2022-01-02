@@ -1,6 +1,7 @@
 package cl.tbd.Lab2.services;
 
 import cl.tbd.Lab2.models.Tarea;
+import cl.tbd.Lab2.models.Ranking;
 import cl.tbd.Lab2.models.Voluntario;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,5 +57,11 @@ public class TareaService {
     @GetMapping("tareas/{id}/voluntarios")
     public List<Voluntario> getVoluntariosInscritos(@PathVariable int id){
         return tareaRepository.findVoluntariosByTareaId(id);
+    }
+
+    @GetMapping("tareas/{id}/ranking")
+    public String generarRanking(@PathVariable int id){
+        tareaRepository.generateRankingByTareaId(id);
+        return "Se ha generado el ranking de voluntarios para la tarea.";
     }
 }

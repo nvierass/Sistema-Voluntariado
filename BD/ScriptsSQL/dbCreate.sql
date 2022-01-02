@@ -114,18 +114,15 @@ LANGUAGE PLPGSQL;
 
 --Procedimiento Almacenado*/
 
-CREATE OR REPLACE PROCEDURE calcular_ranking2(id_tareas int)
+CREATE OR REPLACE PROCEDURE calcular_ranking(id_tareas int)
 LANGUAGE SQL
-AS $$
-Update "Ranking"
-SET puntaje = T.count
-from 
-(select id_voluntario,count(*) 
+AS $$ 
+INSERT into "Ranking"(id_voluntario,id_tarea,puntaje,inscrito,aceptado) 
+SELECT T.id_voluntario,id_tareas,T.puntaje,false,false FROM (select id_voluntario,count(*) as puntaje 
 from "Voluntario_Habilidad" as VH 
 inner join "Tarea_Habilidad" as TH on VH.id_habilidad = TH.id_habilidad 
 where id_tarea = id_tareas
-group by id_voluntario) T
-WHERE "Ranking".id_voluntario = T.id_voluntario
+group by id_voluntario) T;
 $$;
 
 
