@@ -1,6 +1,12 @@
 # TBD_Lab_2
 Instrucciones de Ejecucion
     
+    - Requisitos previos:
+        1. Java v17
+        2. Node.js v16.13
+        3. PostgreSQL 
+        4. Gradle 7.3
+    
     - Backend
         1. Ingresar al directorio siguiente "Backend\src\main\resources".
         2. Abrir el archivo "application.properties" y modificar los valores de acuerdo a la configuración personal de postgres.(port, user, password).
