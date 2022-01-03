@@ -1,2 +1,0 @@
-1.- Método update put o patch (depende de la situacion?)
-5.- como generar una notificacion de error al invocar un método invalido (/entidad/id con POST por ejemplo)
