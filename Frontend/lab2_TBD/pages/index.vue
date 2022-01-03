@@ -1,6 +1,10 @@
 <template>
     <div>
-        <h1>Aplicación de prueba para laboratorio</h1>
+        <h1 class = "centerA"> Plataforma de Gestion de Voluntarios para emergencias</h1>
+        <figure>
+            <img src="/red_vol.jpeg" class="centerB" height=" 400px">    
+        </figure>
+
     </div>
   
 </template>
@@ -21,3 +25,21 @@ export default {
    
 };
 </script>
+
+<style>
+
+.centerA {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+}
+
+.centerB {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+}
+
+</style>
