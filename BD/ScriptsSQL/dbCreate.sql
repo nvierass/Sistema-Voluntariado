@@ -61,6 +61,7 @@ create table "Voluntario_Habilidad" (
 create table "Emergencia" (
 	id_emergencia serial primary key,
 	institucion_encargada int not null,
+	nombre_emergencia varchar(32) not null,
 	estado_emergencia varchar(32) not null,
 	descripcion varchar(256) not null,
 	nombre_coordinador varchar(64) not null,
@@ -89,10 +90,11 @@ create table "Tarea_Habilidad" (
 
 create table "Tarea" (
 	id_tarea serial primary key,
+	nombre varchar(32) not null,
 	emergencia int not null,
 	estado_tarea varchar(32) not null,
-	nombre varchar(32) not null,
-	descripcion varchar(128) not null
+	descripcion varchar(128) not null,
+	voluntarios_requeridos int not null
 );
 
 

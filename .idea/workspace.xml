@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b34850f3-d033-4b57-b07c-88727058b92c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/InstitucionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/InstitucionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/IntitucionRepositoryImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/IntitucionRepositoryImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/services/InstitucionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/services/InstitucionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD/ScriptsSQL/dbCreate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/ScriptsSQL/dbCreate.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD/ScriptsSQL/loadData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/ScriptsSQL/loadData.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
