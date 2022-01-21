@@ -1,6 +1,13 @@
 # TBD_Lab_2
 Instrucciones de Ejecucion
-    -Backend
+    
+    - Requisitos previos:
+        1. Java v17
+        2. Node.js v16.13
+        3. PostgreSQL 
+        4. Gradle 7.3
+    
+    - Backend
         1. Ingresar al directorio siguiente "Backend\src\main\resources".
         2. Abrir el archivo "application.properties" y modificar los valores de acuerdo a la configuración personal de postgres.(port, user, password).
         3. Regresar e ingresar a la carpeta “Backend” del proyecto.
@@ -8,13 +15,13 @@ Instrucciones de Ejecucion
         5. Ejecutar el comando “gradle tasks”.
         6. Luego ejecutar el comando “./gradlew boot run”
 
-    -Frontend
+    - Frontend
         1. Ingresar a la carpeta “Frontend” del proyecto
         2. Luego ingresar a la carpeta lab2_TBD
         3. Para ejecutar el programa y que funcione y se vea algo, se debe tener instalado nuxt, para ello se usa el comando “npm install nuxt”.
         4. Ingresar el comando “npm run dev” y copiar la dirección que se entregará en el cmd en el navegador de internet. 
 
-    -BD
+    - BD
         1. A continuación se mostraran los pasos para la creación y población de la base de datos para los sistemas operativos linux y windows respectivamente.
         
         Linux 
