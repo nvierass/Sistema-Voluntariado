@@ -11,6 +11,9 @@ public class Emergencia {
     private String correo_coordinador;
     private String ciudad;
     private String region;
+    private double latitud;
+    private double longitud;
+    private String location;
 
     public String getNombre_emergencia() {
         return nombre_emergencia;
@@ -45,6 +48,15 @@ public class Emergencia {
     public String getRegion() {
         return region;
     }
+    public double getLatitud() {
+        return latitud;
+    }
+    public double getLongitud() {
+        return longitud;
+    }
+    public String getLocation() {
+        return location;
+    }
 
     public void setId_emergencia(int id_emergencia) {
         this.id_emergencia = id_emergencia;
@@ -78,5 +90,14 @@ public class Emergencia {
     }
     public void setRegion(String region) {
         this.region = region;
+    }
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

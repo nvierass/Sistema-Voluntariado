@@ -52,5 +52,9 @@ public class EmergenciaService {
     public Emergencia updateEmergenciaById(@PathVariable int id,@RequestBody Emergencia emergencia){
         return emergenciaRepository.updateEmergenciaById(id,emergencia);
     }
-
+    
+    @GetMapping("/emergencias/region/{id_region}")
+    public List<Emergencia> getAllEmergenciasbyRegion(@PathVariable int id_region){
+        return emergenciaRepository.getAllEmergenciasbyRegion(id_region);
+    }
 }

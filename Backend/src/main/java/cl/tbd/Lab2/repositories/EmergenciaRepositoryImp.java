@@ -23,10 +23,12 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository{
 
     @Override
     public Emergencia addEmergencia(Emergencia emergencia){
-        String sql = "insert into \"Emergencia\"(institucion_encargada,estado_emergencia,descripcion,nombre_coordinador,rut_coordinador,correo_coordinador,ciudad,region) values (:institucion,:estado,:descripcion,:nombre_coor,:rut_coor,:correo_coor,:ciudad,:region);";
+        String sql = "insert into \"Emergencia\"(institucion_encargada,nombre_emergencia,estado_emergencia,descripcion,nombre_coordinador,rut_coordinador,correo_coordinador,ciudad,region,location) values (:institucion,:nombre_emergencia,:estado,:descripcion,:nombre_coor,:rut_coor,:correo_coor,:ciudad,:region,ST_GeomFromText(:point, 4326))";
         try (Connection con = sql2o.open()) {
+            String point = "POINT("+emergencia.getLongitud()+" "+emergencia.getLatitud()+")";
             int id = (int) con.createQuery(sql)
                     .addParameter("institucion", emergencia.getInstitucion_encargada())
+                    .addParameter("nombre_emergencia", emergencia.getNombre_emergencia())
                     .addParameter("estado",emergencia.getEstado_emergencia())
                     .addParameter("descripcion", emergencia.getDescripcion())
                     .addParameter("nombre_coor", emergencia.getNombre_coordinador())
@@ -34,6 +36,7 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository{
                     .addParameter("correo_coor", emergencia.getCorreo_coordinador())
                     .addParameter("ciudad", emergencia.getCiudad())
                     .addParameter("region", emergencia.getRegion())
+                    .addParameter("point", point)
                     .executeUpdate().getKey();
             emergencia.setId_emergencia(id);
             return emergencia;
@@ -77,6 +80,16 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository{
                     .executeUpdate();
             emergencia.setId_emergencia(id);
             return emergencia;
+        }
+    }
+
+    @Override
+    public List<Emergencia> getAllEmergenciasbyRegion(int id_region){
+        String sql = "SELECT id_emergencia, institucion_encargada,nombre_emergencia,estado_emergencia,descripcion,nombre_coordinador,rut_coordinador,correo_coordinador,ciudad,region, ST_X(location) AS longitud, ST_Y(location) AS latitud FROM \"Emergencia\" AS e INNER JOIN division_regional AS r ON ST_WITHIN(e.location, r.geom) WHERE r.cod_regi = :id_region;";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                .addParameter("id_region", id_region)
+                .executeAndFetch(Emergencia.class);
         }
     }
 }

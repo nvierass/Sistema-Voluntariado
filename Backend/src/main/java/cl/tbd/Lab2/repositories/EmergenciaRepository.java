@@ -12,4 +12,5 @@ public interface EmergenciaRepository {
     public Emergencia getEmergenciaById(int id);
     public void deleteEmergenciaById(int id);
     public Emergencia updateEmergenciaById(int id,Emergencia emergencia);
+    public List<Emergencia> getAllEmergenciasbyRegion(int id_region);
 }

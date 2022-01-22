@@ -97,6 +97,26 @@ create table "Tarea" (
 	voluntarios_requeridos int not null
 );
 
+--POSTGIS
+CREATE EXTENSION postgis;
+SELECT AddGeometryColumn('Emergencia','location','4326','POINT',2);
+SELECT AddGeometryColumn('Voluntario','location','4326','POINT',2);
+
+SET CLIENT_ENCODING TO UTF8;
+SET STANDARD_CONFORMING_STRINGS TO ON;
+CREATE TABLE "division_regional" (gid serial primary key,
+"nom_reg" varchar(50),
+"nom_prov" varchar(20),
+"cod_com" varchar(5),
+"nom_com" varchar(30),
+"cod_regi" numeric,
+"superficie" numeric,
+"poblac02" int4,
+"pobl2010" int4,
+"shape_leng" numeric,
+"shape_area" numeric);
+SELECT AddGeometryColumn('','division_regional','geom','0','MULTIPOLYGON',2);
+
 
 CREATE OR REPLACE FUNCTION edad(fecha_nacimiento date)
 RETURNS integer AS $$
