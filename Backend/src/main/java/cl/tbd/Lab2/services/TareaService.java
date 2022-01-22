@@ -54,14 +54,24 @@ public class TareaService {
         return tareaRepository.updateTareaById(id,tarea);
     }
 
-    @GetMapping("tareas/{id}/voluntarios")
+    @GetMapping("/tareas/{id}/voluntarios")
     public List<Voluntario> getVoluntariosInscritos(@PathVariable int id){
         return tareaRepository.findVoluntariosByTareaId(id);
     }
 
-    @GetMapping("tareas/{id}/ranking")
+    @GetMapping("/tareas/{id}/ranking")
     public String generarRanking(@PathVariable int id){
         tareaRepository.generateRankingByTareaId(id);
         return "Se ha generado el ranking de voluntarios para la tarea.";
+    }
+    @GetMapping("/tareas/all/rankings")
+    public String generarRanking(){
+        tareaRepository.generateAllRankings();
+        return "Se ha generado el ranking de voluntarios para todas las tareas.";
+    }
+
+    @GetMapping("/tareas_emergencia={id}")
+    public List<Tarea> getTareasByEmergenciaId(@PathVariable int id){
+        return tareaRepository.getTareasByEmergenciaId(id);
     }
 }

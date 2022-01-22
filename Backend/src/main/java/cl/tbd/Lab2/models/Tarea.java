@@ -6,6 +6,7 @@ public class Tarea {
     private String estado_tarea;
     private String nombre;
     private String descripcion;
+    private int voluntarios_requeridos;
 
     public int getId_tarea() {
         return id_tarea;
@@ -25,6 +26,10 @@ public class Tarea {
         return descripcion;
     }
 
+    public int getVoluntarios_requeridos() {
+        return voluntarios_requeridos;
+    }
+
     public void setId_tarea(int id_tarea) {
         this.id_tarea = id_tarea;
     }
@@ -41,5 +46,9 @@ public class Tarea {
     }
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public void setVoluntarios_requeridos(int voluntarios_requeridos) {
+        this.voluntarios_requeridos = voluntarios_requeridos;
     }
 }

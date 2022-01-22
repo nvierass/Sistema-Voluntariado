@@ -9,6 +9,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import java.util.List;
+import java.util.ArrayList;
 
 @Repository
 public class TareaRepositoryImp implements TareaRepository {
@@ -94,6 +95,27 @@ public class TareaRepositoryImp implements TareaRepository {
         String sql_sp = "call calcular_ranking(:id);";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql_sp).addParameter("id",id).executeUpdate();
+        }
+    }
+
+    @Override
+    public List<Tarea> getTareasByEmergenciaId(int id){
+        String sql = "select id_tarea,nombre,voluntarios_requeridos,estado_tarea from \"Tarea\" where emergencia = :id order by estado_tarea,nombre;";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql).addParameter("id",id).
+                executeAndFetch(Tarea.class);
+        }
+    }
+
+    @Override
+    public void generateAllRankings(){
+        List<Tarea> tareas;
+        String sql = "select * from \"Tarea\";";
+        try (Connection con = sql2o.open()) {
+            tareas = con.createQuery(sql).executeAndFetch(Tarea.class);
+            for (Tarea t:tareas){
+                generateRankingByTareaId(t.getId_tarea());
+            }
         }
     }
 }

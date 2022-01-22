@@ -11,7 +11,7 @@
                     Ver voluntarios inscritos
                 </nuxt-link>
             </div>
-            <button class="test" v-on:click="handleRanking">Generar Ranking</button>
+            <button class="test" v-on:click="handleRanking">Actualizar Ranking</button>
         </div>
     </div>
 </template>

@@ -79,4 +79,14 @@ public class RankingRepositoryImp implements RankingRepository {
             return ranking;
         }
     }
+
+    @Override
+    public List<Ranking> getVoluntariosInscritosByTareaId(int id){
+        String sql = "select rut,nombre,aceptado from \"Ranking\" R inner join \"Voluntario\" V on V.id_voluntario = R.id_voluntario where id_tarea = :id order by aceptado desc,nombre;";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql).addParameter("id",id).executeAndFetch(Ranking.class);
+        }
+
+    }
+
 }

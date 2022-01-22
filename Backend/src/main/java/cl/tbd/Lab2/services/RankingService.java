@@ -51,4 +51,11 @@ public class RankingService {
     public Ranking updateRankingById(@PathVariable int id,@RequestBody Ranking ranking){
         return rankingRepository.updateRankingById(id,ranking);
     }
+
+    @GetMapping("/voluntarios_tarea={id}")
+    public List<Ranking> getVoluntariosByTareaId(@PathVariable int id){
+        return rankingRepository.getVoluntariosInscritosByTareaId(id);
+    }
+
+
 }

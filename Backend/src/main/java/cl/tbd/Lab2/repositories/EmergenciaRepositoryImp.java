@@ -15,7 +15,7 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository{
 
     @Override
     public List<Emergencia> getAllEmergencias(){
-        String sql = "Select * from \"Emergencia\";";
+        String sql = "Select id_emergencia,nombre_emergencia,estado_emergencia from \"Emergencia\" order by estado_emergencia,nombre_emergencia;";
         try(Connection conn = sql2o.open()){
             return conn.createQuery(sql).executeAndFetch(Emergencia.class);
         }

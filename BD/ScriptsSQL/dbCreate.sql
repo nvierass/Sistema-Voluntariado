@@ -118,7 +118,8 @@ LANGUAGE PLPGSQL;
 
 CREATE OR REPLACE PROCEDURE calcular_ranking(id_tareas int)
 LANGUAGE SQL
-AS $$ 
+AS $$
+Delete from "Ranking" where id_tarea = id_tareas;
 INSERT into "Ranking"(id_voluntario,id_tarea,puntaje,inscrito,aceptado) 
 SELECT T.id_voluntario,id_tareas,T.puntaje,false,false FROM (select id_voluntario,count(*) as puntaje 
 from "Voluntario_Habilidad" as VH 

@@ -7,7 +7,20 @@
     <list default="true" id="b34850f3-d033-4b57-b07c-88727058b92c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BD/ScriptsSQL/dbCreate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/ScriptsSQL/dbCreate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD/ScriptsSQL/loadData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/ScriptsSQL/loadData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/models/Emergencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/models/Emergencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/models/Ranking.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/models/Ranking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/models/Tarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/models/Tarea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/EmergenciaRepositoryImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/EmergenciaRepositoryImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/RankingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/RankingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/RankingRepositoryImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/RankingRepositoryImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/TareaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/TareaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/TareaRepositoryImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/repositories/TareaRepositoryImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/services/RankingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/services/RankingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/services/TareaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/cl/tbd/Lab2/services/TareaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/emergencias/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/emergencias/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/tareas/_id/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/tareas/_id/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/tareas/_id/voluntarios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/tareas/_id/voluntarios.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/tareas/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lab2_TBD/pages/tareas/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

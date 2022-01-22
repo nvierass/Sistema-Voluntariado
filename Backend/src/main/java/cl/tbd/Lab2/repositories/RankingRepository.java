@@ -14,4 +14,5 @@ public interface RankingRepository {
     public Ranking getRankingById(int id);
     public void deleteRankingById(int id);
     public Ranking updateRankingById(int id,Ranking ranking);
+    public List<Ranking> getVoluntariosInscritosByTareaId(int id);
 }

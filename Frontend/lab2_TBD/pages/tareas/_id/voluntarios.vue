@@ -4,7 +4,7 @@
 		<Voluntario
         v-for="(voluntario,index) of voluntarios" 
         :key= index
-		    :index = index+1
+		:index = index+1
         :id_voluntario = voluntario.id_voluntario
         :nombre= voluntario.nombre
         :inscrito= true

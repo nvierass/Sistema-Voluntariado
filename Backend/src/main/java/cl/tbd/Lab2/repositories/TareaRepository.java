@@ -17,4 +17,6 @@ public interface TareaRepository {
     public Tarea updateTareaById(int id,Tarea tarea);
     public List <Voluntario> findVoluntariosByTareaId(int id);
     public void generateRankingByTareaId(int id);
+    public List<Tarea> getTareasByEmergenciaId(int id);
+    public void generateAllRankings();
 }

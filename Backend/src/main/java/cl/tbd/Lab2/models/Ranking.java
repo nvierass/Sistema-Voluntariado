@@ -5,6 +5,8 @@ public class Ranking {
     private int id_voluntario;
     private int id_tarea;
     private int puntaje;
+    private String rut;
+    private String nombre;
     private boolean inscrito;
     private boolean aceptado;
 
@@ -27,6 +29,14 @@ public class Ranking {
         return this.aceptado;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getRut() {
+        return rut;
+    }
+
     public void setId_ranking(int id_ranking){
         this.id_ranking = id_ranking;
     }
@@ -47,5 +57,13 @@ public class Ranking {
     }
     public void setAceptado(Boolean aceptado){
         this.aceptado = aceptado;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
     }
 }
