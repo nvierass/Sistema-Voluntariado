@@ -1,0 +1,43 @@
+import java.util.Arrays;
+import org.bson.Document;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.conversions.Bson;
+import java.util.concurrent.TimeUnit;
+import org.bson.Document;
+
+/*
+ * Requires the MongoDB Java Driver.
+ * https://mongodb.github.io/mongo-java-driver
+ */
+
+MongoClient mongoClient = new MongoClient(
+    new MongoClientURI(
+        "mongodb://127.0.0.1:27017/?readPreference=primary&appname=MongoDB+Compass&directConnection=true&ssl=false"
+    )
+);
+MongoDatabase database = mongoClient.getDatabase("Voluntario");
+MongoCollection<Document> collection = database.getCollection("voluntarios");
+
+FindIterable<Document> result = collection.aggregate(Arrays.asList(new Document("$lookup", 
+    new Document("from", "habilidad")
+            .append("localField", "habilidad")
+            .append("foreignField", "codigo")
+            .append("as", "perro")), 
+    new Document("$unwind", 
+    new Document("path", "$habilidad")), 
+    new Document("$group", 
+    new Document("_id", "$rut")
+            .append("count", 
+    new Document("$sum", 1L))), 
+    new Document("$project", 
+    new Document("_id", 1L)
+            .append("cant_habilidades", 
+    new Document("$divide", Arrays.asList("$count", 2L)))), 
+    new Document("$group", 
+    new Document("_id", "average")
+            .append("average", 
+    new Document("$avg", "$cant_habilidades")))));
