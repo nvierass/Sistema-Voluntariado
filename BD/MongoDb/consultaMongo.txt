@@ -2,7 +2,7 @@
  from: 'habilidad',
  localField: 'habilidad',
  foreignField: 'codigo',
- as: 'perro'
+ as: 'grupo'
 }}, {$unwind: {
  path: '$habilidad'
 }}, {$group: {
@@ -10,17 +10,9 @@
  count: {
   $sum: 1
  }
-}}, {$project: {
- _id: 1,
- cant_habilidades: {
-  $divide: [
-   '$count',
-   2
-  ]
- }
 }}, {$group: {
  _id: 'average',
  average: {
-  $avg: '$cant_habilidades'
+  $avg: '$count'
  }
 }}]
