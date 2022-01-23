@@ -1,0 +1,26 @@
+[{$lookup: {
+ from: 'habilidad',
+ localField: 'habilidad',
+ foreignField: 'codigo',
+ as: 'perro'
+}}, {$unwind: {
+ path: '$habilidad'
+}}, {$group: {
+ _id: '$rut',
+ count: {
+  $sum: 1
+ }
+}}, {$project: {
+ _id: 1,
+ cant_habilidades: {
+  $divide: [
+   '$count',
+   2
+  ]
+ }
+}}, {$group: {
+ _id: 'average',
+ average: {
+  $avg: '$cant_habilidades'
+ }
+}}]
