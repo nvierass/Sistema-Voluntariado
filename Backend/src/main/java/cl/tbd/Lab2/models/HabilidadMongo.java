@@ -9,6 +9,13 @@ public class HabilidadMongo {
     private String description;
     private String codigo;
 
+    public HabilidadMongo(String id, String nombre, String description, String codigo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.description = description;
+        this.codigo = codigo;
+    }
+
     public String getId() {
         return id;
     }

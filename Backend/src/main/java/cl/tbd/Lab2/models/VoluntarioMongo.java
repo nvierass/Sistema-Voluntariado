@@ -1,13 +1,15 @@
 package cl.tbd.Lab2.models;
 
 import org.springframework.data.annotation.Id;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 import java.util.Date;
 import java.util.List;
 
 public class VoluntarioMongo {
-    @Id
-    private String id;
+    @BsonId
+    ObjectId _id;
     private String nombre;
     private String apellido;
     private String rut;
@@ -17,12 +19,25 @@ public class VoluntarioMongo {
     private Date fecha_nacimiento;
     private Disponibilidad disponibilidad;
 
-    public String getId() {
-        return id;
+    public VoluntarioMongo(ObjectId _id, String nombre, String apellido, String rut, Direccion direccion,
+            String email, List<String> habilidades, Date fecha_nacimiento, Disponibilidad disponibilidad) {
+        this._id = _id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.rut = rut;
+        this.direccion = direccion;
+        this.email = email;
+        this.habilidades = habilidades;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.disponibilidad = disponibilidad;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public ObjectId getId() {
+        return _id;
+    }
+
+    public void setId(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getName() {

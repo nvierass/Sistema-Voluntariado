@@ -8,14 +8,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @CrossOrigin(origins = "*")
 @RestController
 public class VoluntarioMongoServices {
     public final VoluntarioMongoRepository voluntarioMongoRepository;
 
-    public VoluntarioMongoServices(VoluntarioMongoRepository voluntarioMongoRepository) {
+    VoluntarioMongoServices(VoluntarioMongoRepository voluntarioMongoRepository) {
         this.voluntarioMongoRepository = voluntarioMongoRepository;
     }
 
