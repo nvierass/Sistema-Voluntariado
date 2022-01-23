@@ -28,24 +28,17 @@ public class VoluntarioMongoRepositoryImp implements VoluntarioMongoRepository {
                                 new Document("from", "habilidad")
                                                 .append("localField", "habilidad")
                                                 .append("foreignField", "codigo")
-                                                .append("as", "perro")),
+                                                .append("as", "grupo")),
                                 new Document("$unwind",
                                                 new Document("path", "$habilidad")),
                                 new Document("$group",
                                                 new Document("_id", "$rut")
                                                                 .append("count",
                                                                                 new Document("$sum", 1L))),
-                                new Document("$project",
-                                                new Document("_id", 1L)
-                                                                .append("cant_habilidades",
-                                                                                new Document("$divide",
-                                                                                                Arrays.asList("$count",
-                                                                                                                2L)))),
                                 new Document("$group",
                                                 new Document("_id", "average")
                                                                 .append("average",
-                                                                                new Document("$avg",
-                                                                                                "$cant_habilidades")))));
+                                                                                new Document("$avg", "$count")))));
 
                 ArrayList<Document> resulDocument = new ArrayList<>(2);
                 for (Document document : result) {
