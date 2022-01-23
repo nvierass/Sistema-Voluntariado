@@ -1,27 +1,29 @@
 package cl.tbd.Lab2.models;
 
 import org.springframework.data.annotation.Id;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 public class HabilidadMongo {
-    @Id
-    private String id;
+    @BsonId
+    private ObjectId _id;
     private String nombre;
     private String description;
     private String codigo;
 
-    public HabilidadMongo(String id, String nombre, String description, String codigo) {
-        this.id = id;
+    public HabilidadMongo(ObjectId id, String nombre, String description, String codigo) {
+        this._id = id;
         this.nombre = nombre;
         this.description = description;
         this.codigo = codigo;
     }
 
-    public String getId() {
-        return id;
+    public ObjectId getId() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(ObjectId id) {
+        this._id = id;
     }
 
     public String getNombre() {

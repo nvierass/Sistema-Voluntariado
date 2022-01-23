@@ -5,9 +5,11 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
-@RepositoryRestResource(collectionResourceRel = "habilidades", path = "habilidades")
-public interface HabilidadesMongoRepository extends MongoRepository<HabilidadMongo, String> {
-    List<HabilidadMongo> findByCode(@Param("codigo") String codigo);
+@RepositoryRestResource(collectionResourceRel = "habilidad", path = "habilidad")
+public interface HabilidadesMongoRepository extends MongoRepository<HabilidadMongo, ObjectId> {
+    List<HabilidadMongo> findByCodigo(@Param("codigo") String codigo);
 
 }
