@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "HabilidadMongo", path = "Habilidad")
+@RepositoryRestResource(collectionResourceRel = "Habilidad", path = "HabilidadMongo")
 public interface HabilidadesMongoRepository extends MongoRepository<HabilidadMongo, String> {
     List<HabilidadMongo> findByCode(@Param("code") String code);
 
