@@ -6,6 +6,7 @@ Instrucciones de Ejecucion
         2. Node.js v16.13
         3. PostgreSQL 
         4. Gradle 7.3
+	5. MongoDB
     
     - Backend
         1. Ingresar al directorio siguiente "Backend\src\main\resources".
@@ -48,4 +49,20 @@ Instrucciones de Ejecucion
             
                 Ejemplo Windows:
                 \i ‘C:/loadData.sql”
+
+    - MongoDB
+        1. Ingresar al siguiente directorio "C:\Program Files\MongoDB\Server\5.0\bin".
+        2. Abrir el archivo "mongod.exe".
+	3. Abrir el archivo "mongo.exe".
+	4. Ejecutar el siguiente comando en consola para crear la base de datos: 
+	
+		load("C:/.../createMongoDB.js") 
+	   
+	   se debe incluir la ruta absoluta del archivo antes de /createMongoDB.js.
+	5. Ejecutar el siguiente comando en consola para poblar la base de datos: 
+	
+		load("C:/.../loadMongoDB.js") 
+	   
+	   se debe incluir la ruta absoluta del archivo antes de /loadMongoDB.js.
+	6. Para ver los resultados de los scripts gráficamente, ir a MongoDB Compass.
 
