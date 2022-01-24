@@ -6,7 +6,7 @@ Instrucciones de Ejecucion
         2. Node.js v16.13
         3. PostgreSQL 
         4. Gradle 7.3
-	5. MongoDB
+        5. MongoDB
     
     - Backend
         1. Ingresar al directorio siguiente "Backend\src\main\resources".
